@@ -1,24 +1,17 @@
-import logo from './logo.svg';
+import SecretInfo from './scenes/SecretInfo';
+import Login from './scenes/Login';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [isLoggedin, setIsLoggedIn] = useState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {isLoggedin
+        ? <SecretInfo />
+        : <Login setIsLoggedIn={setIsLoggedIn}/>
+      }
+    </>
   );
 }
 
